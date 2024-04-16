@@ -1,12 +1,10 @@
 #!/usr/bin/env node
 
 const { red, green, bold } = require('kleur');
-const { validate } = require('schema-utils');
-
 const { debug, rebase, getContext, getOptions } = require('../lib/utils');
 
 const schema = require('../lib/schema');
-const actions = require('../lib/sync');
+const actions = require('../lib');
 
 const context = getContext();
 const options = ['keysRoot', 'dictionaryPattern'].reduce((acc, key) => {
@@ -14,7 +12,7 @@ const options = ['keysRoot', 'dictionaryPattern'].reduce((acc, key) => {
   return acc;
 }, getOptions());
 
-validate(schema, options, { name: 'I18nModules CLI' });
+schema(options); // Will throw if options are invalid
 
 debug('initialized the CLI with options %O', options);
 
