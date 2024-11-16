@@ -6,7 +6,7 @@
   "overrides": [{
     "files": ["**/*.test.js"],
     "env": {
-      "mocha": true
+      "jest": true
     },
     "rules": {
       "no-unused-expressions": "off"
