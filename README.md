@@ -7,31 +7,13 @@ CSS Modules for i18n. Use local file.translations.json files and gather them up 
 
 ### Setup
 
-Create an options RC file in your project's root named `.i18n-modules-rc.js` with this example content:
-```javascript
-module.exports = {
-  // Optional, your keys will be relative to this folder, usually `./app` or `./client`.
-  // Path must be either absolute or relative to the process.cwd().
-  keysRoot: './',
-  // Optional, how you will be naming your translation modules,
-  // similar to file.module.css, or in this case file.translations.json
-  moduleEnding: '.translations.json',
-
-  // Usually the same as the location in your translation tool config:
-  // the path to your dictionary folder or files where [locale_code]
-  // is to be replaced with the language name.
-  // Path must be either absolute or relative to the process.cwd().
-  // Sync binary also uses this option to locate dictionaries.
-  dictionaryPattern: './dictionaries/[locale_code].json',
-
-  // Optional, a function to customize how unique module IDs are generated
-  // Arguments are:
-  //  keysRoot: string, same as above but rebased to be absolute
-  //  moduleEnding: string, same as above
-  //  filePath: string, an absolute path to the translations module file
-  // Must return a stable unique string
-  getId(keysRoot, moduleEnding, filePath) => idString,
-};
+Create an options RC file in your project's root named `.i18n-modules-rc` with this example content:
+```json
+{
+  "keysRoot": "./src",
+  "moduleEnding": ".translations.json",
+  "dictionaryPattern": "./dictionaries/[locale_code].json"
+}
 ```
 
 ### Working with modules
