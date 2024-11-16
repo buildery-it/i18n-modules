@@ -31,7 +31,7 @@
     "test:build": "npm run sync build && npm run sync update && npm run sync clean",
     "check": "npm run test:build && npm test && npm run lint",
     "prepublishOnly": "npm run check && echo \"\\033[0;32mReady to publish\\033[0m\"",
-    "test": "jest"
+    "test": "watchman watch-del-all &>/dev/null && jest"
   },
   "devDependencies": {
     "eslint": "^8.57.1",
